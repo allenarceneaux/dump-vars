@@ -2,7 +2,7 @@ name: 'Dump variables'
 description: 'Dump github variables and secrets'
 
 runs:
-  using: "composite"
+  using: "ubuntu-latest"
   steps:
       - name: 'Dump Env and Secrets'
         run: |
