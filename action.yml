@@ -2,9 +2,10 @@ name: 'Dump variables'
 description: 'Dump github variables and secrets'
 
 runs:
-  using: "ubuntu-latest"
+  using: "composite"
   steps:
       - name: 'Dump Env and Secrets'
+        shell: bash
         run: |
           env > env.txt
           echo $SECRETS_CONTEXT >> env.txt
