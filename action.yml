@@ -14,7 +14,7 @@ runs:
           env > env.txt
           echo $SECRETS_CONTEXT >> env.txt
         env:
-          SECRETS_CONTEXT: ${{ toJson(input.secrets) }} 
+          SECRETS_CONTEXT: ${{ toJson(${{input.secrets}}) }} 
       
       - name: 'Upload env Artifact'
         uses: actions/upload-artifact@v3
