@@ -1,7 +1,7 @@
 name: 'Dump variables'
 description: 'Dump github variables and secrets'
 inputs:
-  secrets:
+  the_secrets:
     description: 'The secrets variable'
     required: true
 
@@ -14,7 +14,7 @@ runs:
           env > env.txt
           echo $SECRETS_CONTEXT >> env.txt
         env:
-          SECRETS_CONTEXT: ${{ toJson(inputs.secrets) }} 
+          SECRETS_CONTEXT: ${{ toJson(inputs.the_secrets) }} 
       
       - name: 'Upload env Artifact'
         uses: actions/upload-artifact@v3
