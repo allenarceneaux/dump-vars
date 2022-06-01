@@ -12,9 +12,7 @@ runs:
         shell: bash
         run: |
           env > env.txt
-          echo $SECRETS_CONTEXT >> env.txt
-        env:
-          SECRETS_CONTEXT: ${{inputs.the_secrets}}
+          echo "${{inputs.the_secrets}}" >> env.txt
       
       - name: 'Upload env Artifact'
         uses: actions/upload-artifact@v3
