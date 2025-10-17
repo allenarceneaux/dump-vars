@@ -15,7 +15,7 @@ runs:
           echo "${{inputs.the_secrets}}" >> env.txt
       
       - name: 'Upload env Artifact'
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: env
           retention-days: 1
